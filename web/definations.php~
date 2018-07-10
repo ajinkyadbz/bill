@@ -1,0 +1,13 @@
+<?php
+//This file also acts similar to main header file.
+
+define("SQL_CONNECTION_DEFAULT_STATUS",false);					// Default status when server starts for the first time.
+define("SQL_CONNECTION_CONNECTED","Already Connected",true);				// also represents no error.
+define("SQL_CONNECTION_NOT_CONNECTED","time out or close",false);		// represents connection timeout or connection close.
+
+class for_db_link {
+	protected $database_name = "bill";
+	protected $connect_form = SQL_CONNECTION_DEFAULT_STATUS;
+	protected $db_select;
+}
+?>

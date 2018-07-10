@@ -1,0 +1,28 @@
+<?php
+require("../database_link.php");
+		  class generate_invoice extends link_db{
+								protected $query_data;
+								protected $query_data2;
+								protected $sql;
+								protected $sql2;
+								protected $fetch;
+								protected $fetch2;
+			function get_items() {
+								$id=1;
+ 								$say = new link_db;
+								$say->connect_database();
+   							$this->query_data = "SELECT * FROM invoice_items WHERE invoice_id = 2";
+   							$this->query_data2 = "SELECT * FROM product WHERE product_id=1";   							
+								$this->sql = mysqli_query($say->connect_form,$this->query_data);
+								$this->sql2 = mysqli_query($say->connect_form,$this->query_data2);
+								$this->fetch2 = mysqli_fetch_assoc($this->sql2);
+								while($this->fetch = mysqli_fetch_assoc($this->sql)){
+				          	echo '<tr><td class="no">'.$id++.'</td><td class="desc">'.$this->fetch2["product_name"].'</td>';
+            				echo '<td class="unit">'.$this->fetch2["unit"].'</td>';
+            				echo '<td class="qty">'.$this->fetch["qty"].'</td>';
+            				echo '<td class="qty">'.$this->fetch2["tax"].'</td>';
+            				echo '<td class="total">'.$this->fetch["rate"].'</td></tr>';
+								}
+				}
+			}
+?>
